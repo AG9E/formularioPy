@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<form class="form" action="/form3" method="POST">
+
+    <div class="form_title">Formulario Informativo</div>
+
+    <div class="form_handable">
+        <label class="form_label">¿Estás familiarizado con las rentas privadas como plan de retiro?</label><br>
+        <label for="siconoce">Si</label>
+        <input type="radio" id="siconoce" name="conoce" value="Si" required>
+        <label for="noconoce">No</label>
+        <input type="radio" id="noconoce" name="conoce" value="No">
+    </div>
+
+    <div class="form_handable">
+            <label class="form_label" for="administra">En una escala del 1 al 10 qué tan preparado estás para administrar tus recursos para retirarte de tu trabajo:</label>
+            <div class="form_handable">
+                <input type="range" id="administra" name="administra" min="1" max="10" value="5" step="1" required oninput="document.getElementById('administraValor').innerText = this.value;">
+                <span id="administraValor">5</span>
+            </div>
+    </div>
+
+    <div class="form_handable">
+        <label class="form_label">¿Te preocupa perder tu dinero en inversiones durante tu retiro?</label><br>
+        <label for="sipreocupa">Si</label>
+        <input type="radio" id="sipreocupa" name="preocupa" value="Si" required>
+        <label for="nopreocupa">No</label>
+        <input type="radio" id="nopreocupa" name="preocupa" value="No">
+    </div>
+
+    <div class="form_handable">
+        <label class="form_label" for="riesgo">¿Cuál es tu nivel de tolerancia al riesgo?</label>
+        <div class="form_handable">
+            <input type="range" id="riesgo" name="riesgo" min="0" max="10" value="5" step="1" required oninput="document.getElementById('riesgoValor').innerText = this.value;">
+            <span id="riesgoValor">5</span>
+        </div>
+    </div>
+
+    <div class="form_handable">
+        <label class="form_label">¿Prefieres la seguridad de pagos garantizados frente a potenciales rendimientos más altos pero inciertos?</label><br>
+        <label for="siprefiere">Si</label>
+        <input type="radio" id="siprefiere" name="prefiere" value="Si" required>
+        <label for="noprefiere">No</label>
+        <input type="radio" id="noprefiere" name="prefiere" value="No">
+    </div>
+
+    <div class="form_item">
+        <input class="form_btn" type="submit" value="Siguiente">
+    </div>
+    
+</form>
+
+<script>
+    document.getElementById('administraValor').innerText = document.getElementById('administra').value;
+    document.getElementById('riesgoValor').innerText = document.getElementById('riesgo').value;
+</script>
+{% endblock %}

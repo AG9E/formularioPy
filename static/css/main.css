@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+body {
+    margin: 0;
+    font-family: "Nunito Sans", sans-serif;
+    background-color: #F7F4F2;
+}
+
+.form {
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 16px;
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
+    max-height: auto;
+    min-height: auto;
+    background: #e9f4f6;
+    padding: 50px;
+    border-radius: 25px;
+    align-items: center;
+}
+
+.form * {
+    box-sizing: border-box;
+    line-height: 1.5;
+}
+
+.form_title {
+    font-size: 2em;
+    font-weight: 700;
+    text-align: center;
+}
+
+.form_item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.form_select {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.form_select_incols {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.form_handable {
+    flex-direction: row;
+    margin-top: 13px;
+    margin-bottom: 15px;
+}
+
+.form_item > * {
+    align-self: flex-start;
+}
+
+.form_label {
+    font-weight: 700;
+    padding: 10px 0;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.form_input {
+    -webkit-appearance: none;
+
+    width: 100%;
+    max-width: 100%;
+
+    /* Fix for safari iOS */
+    /* min-height: calc(0.9em + (0.8em * 2) + 0.6em); */
+    padding: 0.8em;
+    font-size: 0.9em;
+    font-family: "Nunito Sans", sans-serif;
+
+    outline: none;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    background: #f9f9f9;
+    transition: background 0.25s, border-color 0.25s, color 0.25s;
+}
+
+.form_input:focus {
+    background: #ffffff;
+}
+
+.form_input::placeholder {
+    color: #bbbbbb;
+}
+
+.form_input-error {
+    color: #d50000;
+    background: #fff8f8;
+    border-color: #d50000;
+}
+
+.form_input-error::placeholder {
+    color: #ffbfbf;
+}
+
+.form_error {
+    padding-top: 10px;
+    color: #d50000;
+    font-size: 0.9em;
+    visibility: hidden;
+}
+
+.form_input-error + .form_error {
+    visibility: visible;
+}
+
+.form_input-small {
+    max-width: 30%;
+
+}
+
+.form_btn {
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: 600;
+    font-size: 1.1em;
+    padding: 10px 16px;
+    margin: 10px 0;
+
+    color: #ffffff;
+    background: #3478AE;
+    border: 2px solid #34789A;
+    border-radius: 5px;
+
+    cursor: pointer;
+    outline: none;
+    width: 100%;
+
+}
+
+.form_btn:active {
+    background: #285F8E;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;  /* Asegura que el contenedor ocupe al menos toda la altura de la pantalla */
+}
+
+.space {
+    margin-top: 10px;
+}
+
+.dropdown {
+    width: 100%;
+    padding: 0.8em;
+    font-size: 0.9em;
+    font-family: "Nunito Sans", sans-serif;
+    outline: none;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    background: #f9f9f9;
+    transition: background 0.25s, border-color 0.25s, color 0.25s;
+}

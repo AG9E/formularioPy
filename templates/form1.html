@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<form class="form" id="contactForm" action="/form2" method="POST">
+
+    <div class="form_title">Información Personal</div>
+
+    <div class="form_item">
+        <label for="nombre" class="form_label">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" class="form_input" placeholder="Juan Pérez" required>
+    </div>    
+
+    <div class="form_item">
+        <label for="email" class="form_label">Correo electrónico:</label>
+        <input type="email" id="email" name="email" class="form_input" placeholder="ejemplo@gmail.com" required>
+    </div>
+
+    <div class="form_handable">
+        <label class="form_label">Sexo:</label><br>
+        <input type="radio" id="masculino" name="sexo" value="Masculino" required>
+        <label for="masculino">Masculino</label>
+        <input type="radio" id="femenino" name="sexo" value="Femenino">
+        <label for="femenino">Femenino</label>
+    </div>
+<!--
+    <div class="form_handable">
+        <label class="form_label">Estado civil:</label><br>
+        <input type="radio" id="soltero" name="civil" value="Soltero" required>
+        <label for="soltero">Soltero(a)</label>
+        <input type="radio" id="casado" name="civil" value="Casado">
+        <label for="casado">Casado(a)</label>
+        <input type="radio" id="divorciado" name="civil" value="Divorciado">
+        <label for="divorciado">Divorciado(a)</label>
+        <input type="radio" id="viudo" name="civil" value="Viudo">
+        <label for="viudo">Viudo(a)</label>
+        <input type="radio" id="libre" name="civil" value="Union Libre">
+        <label for="libre">Union Libre</label>
+    </div><br>
+-->
+    <div class="form_handable">
+        <label class="form_label" for="civil">Estado civil:</label><br>
+        <select name="civil" id="civil" class="dropdown" required>
+            <option value=""></option>
+            <option value="Soltero">Soltero(a)</option>
+            <option value="Casado">Casado(a)</option>
+            <option value="Divorciado">Divorciado(a)</option>
+            <option value="Viudo">Viudo(a)</option>
+            <option value="Unión Libre">Unión Libre</option>
+        </select>
+    </div>
+
+    <div class="form_item">
+        <label for="edad" class="form_label">Edad:</label>
+        <input type="number" pattern="[0-9]*" inputmode="numeric" id="edad" name="edad" min="18" max="110" class="form_input form_input-small" placeholder="Min. 18 Max. 110" required>
+    </div>
+
+    <div class="form_item">
+        <label for="hijos" class="form_label">¿Cuántos hijos tienes?</label>
+        <input type="number" pattern="[0-9]*" inputmode="numeric" id="hijos" name="hijos" class="form_input form_input-small" placeholder="Max. 10" min="0" max="10" required>
+    </div> 
+
+    <div class="form_item">
+        <input class="form_btn" type="submit" value="Siguiente">
+    </div>
+
+</form>
+{% endblock %}

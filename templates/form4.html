@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<form class="form" id="final_form" action="/submit" method="POST">
+    <div class="form_title">Formulario de Tipo de Renta</div>
+
+    <div class="form_handable">
+        <label class="form_label">Elige la opción deseada:</label>
+        <div class="form_select_incols space">
+                <input type="radio" id="tipoprogramada" name="tipo" value="Programada" required>
+                <label for="tipoprogramada">Me gustaría contar con una renta mensual fija durante un periodo determinado.</label>
+        </div>
+        <div class="form_select_incols space">
+                <input type="radio" id="tipovitalicia" name="tipo" value="Vitalicia">
+                <label for="tipovitalicia">Me gustaría contar con una renta mensual fija más baja pero garantizada por el resto de mi vida.</label>
+        </div>
+    </div>
+
+    <div class="form_handable">
+        <label class="form_label">¿Te gustaría contratar la renta antes del retiro a una fecha específica para contar con una pensión mayor?</label><br>
+        <label for="sidiferida">Si</label>
+        <input type="radio" id="sidiferida" name="diferida" value="Si diferida" required>
+        <label for="nodiferida">No</label>
+        <input type="radio" id="nodiferida" name="diferida" value="No diferida">
+    </div>
+
+    <div class="form_handable">
+        <label class="form_label">Elige la opción deseada:</label>
+        <div class="form_select_incols space">
+            <input type="radio" id="regular" name="categoria" value="Regular" required>
+            <label for="regular">Me gustaría que mi renta esté dentro de un periodo determinado o por el resto de mi vida, y yo ser el único beneficiario de los fondos.</label>
+        </div>
+        <div class="form_select_incols space">
+            <input type="radio" id="garantia" name="categoria" value="Garantía">
+            <label for="garantia">Me gustaría que, en caso de mi fallecimiento, dejar a un beneficiario una renta por un periodo determinado.</label>
+        </div>
+        <div class="form_select_incols space">
+            <input type="radio" id="mancomunada" name="categoria" value="Mancomunada">
+            <label for="mancomunada">Me gustaría que, en caso de mi fallecimiento, dejar a un beneficiario una renta por el resto de su vida.</label>
+        </div>
+    </div>
+
+    <div class="form_handable">
+        <label class="form_label">Elige la opción deseada:</label>
+        <div class="form_select_incols space">
+            <input type="radio" id="dolares" name="moneda" value="Dólares" required>
+            <label for="dolares">Prefiero recibir mi renta fija en dólares, ya que lo más me preocupa es la inestabilidad en el tipo de cambio.</label>
+        </div>
+        <div class="form_select_incols space">
+            <input type="radio" id="reevaluable" name="moneda" value="Reevaluable">
+            <label for="reevaluable">Prefiero tener una renta que se ajuste con la inflación para que la renta que recibo en el primer periodo me alcance de manera equivalente a lo mismo en los siguientes periodos.</label>
+        </div>
+        <div class="form_select_incols space">
+            <input type="radio" id="nominal" name="moneda" value="Nominal">
+            <label for="nominal">Prefiero tener una renta fija pactada, que al inicio sería más alta que la ajustada por inflación, pero en un futuro podría ser menor.</label>
+        </div>
+    </div>
+
+    <div class="form_item">
+        <input class="form_btn" type="submit" value="Finalizar">
+    </div>
+</form>
+<script>
+    document.getElementById('final_form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Evita el envío inmediato del formulario
+        if (confirm("Gracias por contestar la encuesta.")) {
+            this.submit(); // Si el usuario confirma, envía el formulario
+        }
+    });
+</script>
+{% endblock %}

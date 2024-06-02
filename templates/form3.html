@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<form class="form" action="/form4" method="POST">
+    <div class="form_title">Formulario de Riesgos</div>
+
+    <div class="form_handable">
+        <label class="form_label">¿Te gustaría proteger tus ingresos en el retiro a cambios en las tasas de interés y/o rentabilidad?</label><br>
+        <label for="sigustaria">Si</label>
+        <input type="radio" id="sigustaria" name="gustaria" value="Si" required>
+        <label for="nogustaria">No</label>
+        <input type="radio" id="nogustaria" name="gustaria" value="No">
+    </div>
+
+    <div class="form_handable">
+        <label class="form_label">¿Te preocupa la posibilidad de que tus ingresos en el retiro no alcancen para toda tu vida?</label><br>
+        <label for="siposibilidad">Si</label>
+        <input type="radio" id="siposibilidad" name="posibilidad" value="Si" required>
+        <label for="noposibilidad">No</label>
+        <input type="radio" id="noposibilidad" name="posibilidad" value="No">
+    </div>
+
+    <div class="form_item">
+        <input class="form_btn" type="submit" value="Siguiente">
+    </div>
+</form>
+{% endblock %}
