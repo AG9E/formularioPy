@@ -61,6 +61,9 @@ def submit():
     msg = Message('El producto de su preferencia Allianz', sender=sender, recipients=[correo])
     msg.body = '¡Gracias por tu preferencia!'
 
+    msg_to_allinz = Message('¡Nueva respuesta!', sender=sender, recipients=[sender])
+    msg_to_allinz.body = 'Nueva Respuesta'
+
     if temp_data['tipo'] == 'Programada' and temp_data['categoria'] == 'Regular' and temp_data['moneda'] == 'Dólares':
         with open('pro_reg_usd.html', 'r', encoding='utf-8') as f:
             msg.html = f.read()
@@ -119,15 +122,15 @@ def submit():
         msg.subject = 'Opción por defecto'
         msg.html = '<p>Correo por defecto</p>'
 
-    
-    #with open('vitalicia_mancomunada_reevaluable.html', 'r', encoding='utf-8') as f:
-        #msg.html = f.read()
-
     mail.send(msg)
 
-    #with open('datos.txt', 'a') as f:
-        #f.write(f"Nombre: {temp_data['nombre']}\nEdad: {temp_data['edad']}\nCorreo electrónico: {temp_data['email']}\nSexo: {temp_data['sexo']}\nEstado civil: {temp_data['civil']}\nNúmero de hijos: {temp_data['hijos']}\nFamiliarizado con planes de retiro: {temp_data['conoce']}\nSabe administrar su dinero: {temp_data['administra']}\nLe preocupa perder su dinero durante el retiro: {temp_data['preocupa']}\nTolerancia al riesgo: {temp_data['riesgo']}\nPagos garantizados frente a potenciales rendimientos más altos pero inciertos: {temp_data['prefiere']}\n¿Te gustaría proteger tus ingresos en el retiro a cambios en las tasas de interés y/o rentabilidad?: {temp_data['gustaria']}\n¿Te preocupa la posibilidad de que tus ingresos en el retiro no alcancen para toda tu vida?: {temp_data['posibilidad']}\nPrefiere: {temp_data['tipo']}\nPrefiere: {temp_data['diferida']}\nPrefiere: {temp_data['categoria']}\nPrefiere: {temp_data['moneda']}\n\n")
-    #return f"Gracias, {temp_data['nombre']}."
+    with open('datos.txt', 'a') as f:
+        f.write(f"Nombre: {temp_data['nombre']}\nEdad: {temp_data['edad']}\nCorreo electrónico: {temp_data['email']}\nSexo: {temp_data['sexo']}\nEstado civil: {temp_data['civil']}\nNúmero de hijos: {temp_data['hijos']}\nFamiliarizado con planes de retiro: {temp_data['conoce']}\nSabe administrar su dinero: {temp_data['administra']}\nLe preocupa perder su dinero durante el retiro: {temp_data['preocupa']}\nTolerancia al riesgo: {temp_data['riesgo']}\nPagos garantizados frente a potenciales rendimientos más altos pero inciertos: {temp_data['prefiere']}\n¿Te gustaría proteger tus ingresos en el retiro a cambios en las tasas de interés y/o rentabilidad?: {temp_data['gustaria']}\n¿Te preocupa la posibilidad de que tus ingresos en el retiro no alcancen para toda tu vida?: {temp_data['posibilidad']}\nPrefiere: {temp_data['tipo']}\nPrefiere: {temp_data['diferida']}\nPrefiere: {temp_data['categoria']}\nPrefiere: {temp_data['moneda']}\n\n")
+    
+    with open('datos.txt', 'r') as f:
+        msg_to_allinz.attach('datos.txt', 'text/plain', f.read())
+    mail.send(msg_to_allinz)
+
     return redirect('https://www.allianz.com.mx')
 
 if __name__ == '__main__':
