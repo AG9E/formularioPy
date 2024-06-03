@@ -131,7 +131,7 @@ def submit():
         msg_to_allinz.attach('datos.txt', 'text/plain', f.read())
     mail.send(msg_to_allinz)
 
-    return redirect('https://www.allianz.com.mx')
+    return redirect('https://www.allianz.com.mx/seguros/personales/pensiones.html')
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
